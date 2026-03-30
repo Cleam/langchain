@@ -212,13 +212,13 @@ sequenceDiagram
     participant Model as ChatModel
     participant Tool as 天气工具
 
-    User->>Model: "北京天气怎么样？"
+    User->>Model: '北京天气怎么样？'
     Model->>Model: 分析：需要调用 search_weather
-    Model-->>User: tool_calls: [{name: "search_weather", args: {city: "北京"}}]
-    User->>Tool: search_weather("北京")
-    Tool-->>User: "北京今天晴，25°C"
-    User->>Model: ToolMessage: "北京今天晴，25°C"
-    Model-->>User: "北京今天天气晴朗，温度 25°C，适合外出。"
+    Model-->>User: tool_calls: [{name: 'search_weather', args: {city: '北京'}}]
+    User->>Tool: search_weather('北京')
+    Tool-->>User: '北京今天晴，25°C'
+    User->>Model: ToolMessage: '北京今天晴，25°C'
+    Model-->>User: '北京今天天气晴朗，温度 25°C，适合外出。'
 ```
 
 ### 特性三：流式输出（Streaming）

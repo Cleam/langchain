@@ -194,20 +194,20 @@ sequenceDiagram
     participant M as ChatModel
     participant OP as StrOutputParser
 
-    U->>RP: "公司请假流程是什么？"
+    U->>RP: '公司请假流程是什么？'
     
     par 并行执行
-        RP->>R: "公司请假流程是什么？"
+        RP->>R: '公司请假流程是什么？'
         R->>FD: [Doc1, Doc2, Doc3]
-        FD-->>RP: "格式化后的文档文本"
+        FD-->>RP: '格式化后的文档文本'
     and
-        RP-->>RP: question = "公司请假流程是什么？"
+        RP-->>RP: question = '公司请假流程是什么？'
     end
     
-    RP->>P: {context: "...", question: "..."}
+    RP->>P: {context: '...', question: '...'}
     P->>M: [SystemMessage(...), HumanMessage(...)]
-    M->>OP: AIMessage(content="根据公司手册...")
-    OP-->>U: "根据公司手册，请假流程如下：1. ..."
+    M->>OP: AIMessage(content='根据公司手册...')
+    OP-->>U: '根据公司手册，请假流程如下：1. ...'
 ```
 
 ---

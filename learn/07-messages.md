@@ -211,15 +211,15 @@ sequenceDiagram
     participant AI as ChatModel
     participant T as 工具
 
-    U->>AI: HumanMessage("北京天气如何？")
-    AI-->>U: AIMessage(tool_calls=[{name: "weather", args: {city: "北京"}}])
+    U->>AI: HumanMessage('北京天气如何？')
+    AI-->>U: AIMessage(tool_calls=[{name: 'weather', args: {city: '北京'}}])
     Note right of AI: AI 决定需要调用工具
     
-    U->>T: 执行 weather(city="北京")
-    T-->>U: "晴天，25°C"
+    U->>T: 执行 weather(city='北京')
+    T-->>U: '晴天，25°C'
     
-    U->>AI: ToolMessage(content="晴天，25°C", tool_call_id="call_xxx")
-    AI-->>U: AIMessage(content="北京今天天气晴朗，温度 25°C，适合外出。")
+    U->>AI: ToolMessage(content='晴天，25°C', tool_call_id='call_xxx')
+    AI-->>U: AIMessage(content='北京今天天气晴朗，温度 25°C，适合外出。')
 ```
 
 对应的代码：
@@ -281,7 +281,7 @@ print(merged.content)  # "你好世界"
 
 ```mermaid
 graph LR
-    C1["Chunk 1<br/>'春']"] --> MERGE["+"]
+    C1[Chunk 1<br/>'春']"] --> MERGE["+"]
     C2["Chunk 2<br/>'风'"] --> MERGE
     C3["Chunk 3<br/>'拂面'"] --> MERGE
     MERGE --> FULL["完整消息<br/>'春风拂面'"]

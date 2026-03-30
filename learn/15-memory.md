@@ -150,21 +150,21 @@ sequenceDiagram
     participant S as 会话存储
     participant C as Chain
 
-    U->>RH: invoke("我叫小明", session="user_001")
-    RH->>S: 获取历史(session="user_001")
+    U->>RH: invoke('我叫小明', session='user_001')
+    RH->>S: 获取历史(session='user_001')
     S-->>RH: [] (空历史)
-    RH->>C: invoke(history=[], input="我叫小明")
-    C-->>RH: "你好小明！"
+    RH->>C: invoke(history=[], input='我叫小明')
+    C-->>RH: '你好小明！'
     RH->>S: 保存消息(HumanMessage + AIMessage)
-    RH-->>U: "你好小明！"
+    RH-->>U: '你好小明！'
     
-    U->>RH: invoke("我叫什么？", session="user_001")
-    RH->>S: 获取历史(session="user_001")
-    S-->>RH: [Human("我叫小明"), AI("你好小明！")]
-    RH->>C: invoke(history=[...], input="我叫什么？")
-    C-->>RH: "你叫小明！"
+    U->>RH: invoke('我叫什么？', session='user_001')
+    RH->>S: 获取历史(session='user_001')
+    S-->>RH: [Human('我叫小明'), AI('你好小明！')]
+    RH->>C: invoke(history=[...], input='我叫什么？')
+    C-->>RH: '你叫小明！'
     RH->>S: 追加新消息
-    RH-->>U: "你叫小明！"
+    RH-->>U: '你叫小明！'
 ```
 
 ---
@@ -371,9 +371,9 @@ result = chain_with_history.invoke(
 ```mermaid
 graph TB
     subgraph "会话隔离"
-        UA[用户 A<br/>session: user_A] --> HA[历史 A<br/>"我叫张三..."]
-        UB[用户 B<br/>session: user_B] --> HB[历史 B<br/>"我叫李四..."]
-        UC[用户 C<br/>session: user_C] --> HC[历史 C<br/>"我叫王五..."]
+        UA[用户 A<br/>session: user_A] --> HA[历史 A<br/>我叫张三...]
+        UB[用户 B<br/>session: user_B] --> HB[历史 B<br/>我叫李四...]
+        UC[用户 C<br/>session: user_C] --> HC[历史 C<br/>我叫王五...]
     end
 ```
 

@@ -143,16 +143,16 @@ sequenceDiagram
     participant M as LLM（绑定工具）
     participant T as 工具函数
 
-    U->>M: "北京天气怎么样？"
+    U->>M: '北京天气怎么样？'
     Note right of M: LLM 分析：需要调用<br/>search_weather 工具
     M-->>U: AIMessage(tool_calls=[...])
     
-    U->>T: search_weather(city="北京")
-    T-->>U: "晴，25°C"
+    U->>T: search_weather(city='北京')
+    T-->>U: '晴，25°C'
     
-    U->>M: ToolMessage("晴，25°C")
+    U->>M: ToolMessage('晴，25°C')
     Note right of M: LLM 基于工具结果<br/>生成最终回答
-    M-->>U: "北京今天天气晴朗，气温25°C..."
+    M-->>U: '北京今天天气晴朗，气温25°C...'
 ```
 
 ---
@@ -309,13 +309,13 @@ sequenceDiagram
     participant A as SQL Agent
     participant DB as 数据库
 
-    U->>A: "销售额最高的前5个产品"
+    U->>A: '销售额最高的前5个产品'
     A->>A: 思考：需要查询数据库
     A->>DB: 查看表结构
     DB-->>A: tables: products, orders...
     A->>DB: SELECT p.name, SUM(o.amount)...
     DB-->>A: 查询结果
-    A-->>U: "销售额前5的产品是..."
+    A-->>U: '销售额前5的产品是...'
 ```
 
 ---

@@ -321,14 +321,14 @@ sequenceDiagram
     participant Model as Model
     participant Parser as Parser
 
-    User->>Prompt: stream({"topic": "AI"})
+    User->>Prompt: stream({'topic': 'AI'})
     Prompt->>Model: 完整的 Prompt 消息
-    Model->>Parser: chunk 1: "人工"
-    Parser->>User: "人工"
-    Model->>Parser: chunk 2: "智能"
-    Parser->>User: "智能"
-    Model->>Parser: chunk 3: "是..."
-    Parser->>User: "是..."
+    Model->>Parser: chunk 1: '人工'
+    Parser->>User: '人工'
+    Model->>Parser: chunk 2: '智能'
+    Parser->>User: '智能'
+    Model->>Parser: chunk 3: '是...'
+    Parser->>User: '是...'
 ```
 
 > 💡 注意：Prompt 和 Parser 步骤本身不产生"流"，但它们会"透传"上游的流式数据。真正产生流式数据的是 Model。
