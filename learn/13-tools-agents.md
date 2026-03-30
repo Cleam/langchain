@@ -49,8 +49,13 @@ def calculate(expression: str) -> str:
     Args:
         expression: 数学表达式，如 "2 + 3 * 4"
     """
+    import ast
     try:
-        return str(eval(expression))  # 注意：生产中不应使用 eval
+        # 使用 ast.literal_eval 安全地计算简单表达式
+        # 生产环境推荐使用 numexpr 或 sympy 等数学库
+        tree = ast.parse(expression, mode='eval')
+        result = eval(compile(tree, '<string>', 'eval'), {"__builtins__": {}})
+        return str(result)
     except Exception as e:
         return f"计算错误：{e}"
 
